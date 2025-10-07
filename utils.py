@@ -20,10 +20,11 @@ def complete(task_list):
     tasks[task] = True
 
 def print_tasks():
-  print("\n")
-  for key, value in tasks.items():
-    print(f"{key}: {value}")
-  print("\n")
+  if tasks:
+    print()
+    for key, value in tasks.items():
+      print(f"{key}: {value}")
+    print()
 
 def print_func():
   print("\nCOMMANDS")
