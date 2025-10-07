@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-from os import remove
-from json_utils import dump, preload
-from list_utls import print_list_names, print_lists
-from todo_utils import add, complete
-=======
 from json_utils import dump, preload
 from list_utls import print_list_names, print_lists
 from todo_utils import add, complete, remove
->>>>>>> f35271a (shift util funcs)
 from utils import new_list, print_func
 
 
