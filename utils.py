@@ -6,7 +6,7 @@ def print_func():
   print(" d <list> <task> ... : delete task(s) from list, use * to delete list")
   print(" c <list> <task> ... : complete task(s) from list")
   print(" n <list> : new list")
-  print(" p <list> : p list")
+  print(" p <list> : p list, use * to print all list names")
   print(" ? : print commands")
   print(" q : quit\n")
 
@@ -24,5 +24,11 @@ def get_list_keys():
   return keys
 
 # SETTERS
-def new_list(name, items={}):
+def new_list(name, items=None):
+  if items is None:
+    items = {}
   todo_lists[name] = items
+  
+def delete(list_name):
+  if list_name in todo_lists:
+    todo_lists.pop(list_name)
