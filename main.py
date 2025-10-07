@@ -1,7 +1,9 @@
-from utils import add, complete, dump, print_func, print_tasks, remove
+from todo_utils import add, complete, print_func, print_list, remove
+from json_utils import dump, preload
 
 
 print("~~ TODO LIST ~~")
+preload()
 print_func()
 
 items = input("enter a command: ").split()
@@ -24,8 +26,11 @@ while cmd != 'q':
         complete(items[1:])
       else:
         print("invalid syntax: c <task> ...")
-    case 'l':
-      print_tasks()
+    case 'p':
+      if len(items) >= 2:
+        print_list(items[1:])
+      else:
+        print("invalid syntax: p <list> ...")
     case '?':
       print_func()
     case 'q':
