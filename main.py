@@ -1,28 +1,5 @@
-tasks = []
+from utils import add, complete, print_func, print_tasks, remove
 
-def add(task_list):
-  for task in task_list:
-    tasks.append(task)
-
-def remove(task_list):
-  for task in task_list:
-    if task in tasks:
-      tasks.remove(task)
-
-def complete(task_list):
-  return
-
-def list():
-  print(f"\n{tasks}\n")
-
-def print_func():
-  print("\nCOMMANDS")
-  print(" a <task> ... : add task(s)")
-  print(" d <task> ... : delete task(s)")
-  print(" c <task> ... : complete task(s)")
-  print(" l : list tasks")
-  print(" ? : print commands")
-  print(" q : quit\n")
 
 print("~~ TODO LIST ~~")
 print_func()
@@ -48,7 +25,7 @@ while cmd != 'q':
       else:
         print("invalid syntax: c <task> ...")
     case 'l':
-      list()
+      print_tasks()
     case '?':
       print_func()
     case 'q':
