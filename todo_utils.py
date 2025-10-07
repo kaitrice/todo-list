@@ -10,8 +10,6 @@ def add(list_name, task_list):
 def remove(list_name, task_list):
   todo_list = get_todo_list(list_name)
   for task in task_list:
-    if task == '*':
-      todo_list.clear()
     if task in todo_list:
       todo_list.pop(task)
 
