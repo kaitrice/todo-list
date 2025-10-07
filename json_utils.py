@@ -21,3 +21,13 @@ def dump():
     fullpath = os.path.join(path, filename)
     with open(fullpath, 'w') as file:
       json.dump(tasks, file, indent=2)
+
+def delete_file(file_name):
+  filename = f"{file_name}.json"
+  fullpath = os.path.join(path, filename)
+  
+  if os.path.exists(fullpath):
+    try:
+      os.remove(fullpath)
+    except OSError as e:
+      print(f"File error: {e}")

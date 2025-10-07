@@ -1,3 +1,6 @@
+# from json_utils import delete_file
+
+
 todo_lists = {"tasks": {}}
 
 def print_func():
@@ -30,5 +33,7 @@ def new_list(name, items=None):
   todo_lists[name] = items
   
 def delete(list_name):
+  from json_utils import delete_file
   if list_name in todo_lists:
     todo_lists.pop(list_name)
+    delete_file(list_name)

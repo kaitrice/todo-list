@@ -29,7 +29,7 @@ def do_delete(list_name, task_list):
   if not list_name and not task_list:
     print("syntax error: d <list> <task> ...")
     return
-  if task_list == '*':
+  if task_list == ['*']:
     delete(list_name)
   else:
     remove(list_name, task_list)
