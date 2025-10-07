@@ -1,9 +1,10 @@
-from todo_utils import add, complete, print_func, print_list, remove
+from todo_utils import add, complete, print_func, print_list, print_lists, remove
 from json_utils import dump, preload
 
 
 print("~~ TODO LIST ~~")
 preload()
+print_lists()
 print_func()
 
 items = input("enter a command: ").split()

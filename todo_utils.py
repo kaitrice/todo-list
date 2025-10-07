@@ -31,10 +31,10 @@ def print_list(lists):
     if name in todo_lists:
       print_tasks(todo_lists[name])
     else:
-      keys = []
-      for key in todo_lists.keys():
-        keys.append(key)
-      print(f"invalid list: {keys}")
+      print(f"invalid list: {get_list_keys()}")
+
+def print_lists():
+  print(f"Lists: {get_list_keys()}")
 
 def print_func():
   print("\nCOMMANDS")
@@ -52,6 +52,12 @@ def get_todo_lists():
 
 def get_list(name):
   return todo_lists[name]
+
+def get_list_keys():
+  keys = []
+  for key in todo_lists.keys():
+    keys.append(key)
+  return keys
 
 # SETTERS
 def new_list(name, items={}):
