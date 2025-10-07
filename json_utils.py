@@ -1,7 +1,7 @@
 import json
 import os
 
-from todo_utils import get_todo_lists, new_list
+from utils import get_todo_lists, new_list
 
 
 path = "todo/"
