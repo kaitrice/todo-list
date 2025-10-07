@@ -1,7 +1,7 @@
 
 # ToDo List
 
-CLI json todo list 
+UI json todo list 
 
 
 ## Features
