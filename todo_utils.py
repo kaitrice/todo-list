@@ -1,38 +1,46 @@
-tasks = {}
-todo_lists = {}
+todo_lists = {"tasks": {}}
 
 # COMMANDS
-def add(task_list):
+def add(list_name, task_list):
+  todo_list = get_list(list_name)
   for task in task_list:
-    tasks[task] = False
+    todo_list[task] = False
 
-def remove(task_list):
+def remove(list_name, task_list):
+  todo_list = get_list(list_name)
   for task in task_list:
     if task == '*':
-      tasks.clear()
-    if task in tasks:
-      tasks.pop(task)
+      todo_list.clear()
+    if task in todo_list:
+      todo_list.pop(task)
 
-def complete(task_list):
+def complete(list_name, task_list):
+  todo_list = get_list(list_name)
   for task in task_list:
-    tasks[task] = True
+    todo_list[task] = True
 
 # PRINTING
-def print_tasks(list):
+def print_tasks(list_name):
   print()
-  for key, value in list.items():
+  for key, value in list_name.items():
     print(f"{key}: {value}")
   print()
 
 def print_list(lists):
   for name in lists:
-    print_tasks(todo_lists[name])
+    if name in todo_lists:
+      print_tasks(todo_lists[name])
+    else:
+      keys = []
+      for key in todo_lists.keys():
+        keys.append(key)
+      print(f"invalid list: {keys}")
 
 def print_func():
   print("\nCOMMANDS")
-  print(" a <task> ... : add task(s)")
-  print(" d <task> ... : delete task(s), use * to clear list")
-  print(" c <task> ... : complete task(s)")
+  print(" a <list> <task> ... : add task(s) to list")
+  print(" d <list> <task> ... : delete task(s) from list, use * to delete list")
+  print(" c <list> <task> ... : complete task(s) from list")
   print(" n <list> ... : new list(s)")
   print(" p <list> : p list")
   print(" ? : print commands")

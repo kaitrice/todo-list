@@ -4,18 +4,20 @@ import os
 from todo_utils import get_todo_lists, new_list
 
 
-path = "todo/tasks.json"
+path = "todo/"
+
+def preload():
+  for file in os.listdir(path):
+    fullpath = os.path.join(path, file)
+    with open(fullpath, 'r') as fp:
+      tasks = json.load(fp)
+      list_name = os.path.splitext(file)[0]
+      new_list(list_name, tasks)
 
 def dump():
   todo_lists = get_todo_lists()
-  with open("todo/tasks.json", 'w') as file:
-    for name in todo_lists:
-      tasks = todo_lists[name]
-      json.dump(tasks, file)
-
-def preload():
-  isFile = os.path.isfile(path)
-  if isFile:
-    with open(path, 'r') as file:
-      tasks = json.load(file)
-      new_list("tasks", tasks)
+  for name, tasks in todo_lists.items():
+    filename = f"{name}.json"
+    fullpath = os.path.join(path, filename)
+    with open(fullpath, 'w') as file:
+      json.dump(tasks, file, indent=2)

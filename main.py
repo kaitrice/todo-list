@@ -12,20 +12,20 @@ cmd = items[0].lower()
 while cmd != 'q':
   match cmd:
     case 'a':
-      if len(items) >= 2:
-        add(items[1:])
+      if len(items) >= 3:
+        add(items[1], items[2:])
       else:
-        print("invalid syntax: a <task> ...")
+        print("invalid syntax: a <list> <task> ...")
     case 'd':
-      if len(items) >= 2:
-        remove(items[1:])
+      if len(items) >= 3:
+        remove(items[1], items[2:])
       else:
-        print("invalid syntax: d <task> ...")
+        print("invalid syntax: d <list> <task> ...")
     case 'c':
-      if len(items) >= 2:
-        complete(items[1:])
+      if len(items) >= 3:
+        complete(items[1], items[2:])
       else:
-        print("invalid syntax: c <task> ...")
+        print("invalid syntax: c <list> <task> ...")
     case 'p':
       if len(items) >= 2:
         print_list(items[1:])
