@@ -10,6 +10,8 @@ def add(task_list):
 
 def remove(task_list):
   for task in task_list:
+    if task == '*':
+      tasks.clear()
     if task in tasks:
       tasks.pop(task)
 
@@ -23,7 +25,7 @@ def print_tasks():
 def print_func():
   print("\nCOMMANDS")
   print(" a <task> ... : add task(s)")
-  print(" d <task> ... : delete task(s)")
+  print(" d <task> ... : delete task(s), use * to clear list")
   print(" c <task> ... : complete task(s)")
   print(" l : list tasks")
   print(" ? : print commands")
