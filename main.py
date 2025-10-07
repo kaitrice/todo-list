@@ -1,4 +1,4 @@
-from utils import add, complete, print_func, print_tasks, remove
+from utils import add, complete, dump, print_func, print_tasks, remove
 
 
 print("~~ TODO LIST ~~")
@@ -35,3 +35,5 @@ while cmd != 'q':
   
   items = input("enter a command: ").split()
   cmd = items[0].lower()
+
+dump()
